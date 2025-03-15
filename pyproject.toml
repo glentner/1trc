@@ -1,0 +1,32 @@
+[project]
+name = "1trc"
+version = "0.1.0"
+description = "One Trillion Row Challenge"
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/glentner/1trc"
+documentation = "https://github.com/glentner/1trc"
+repository = "https://github.com/glentner/1trc"
+requires-python = ">=3.13"
+dependencies = [
+    "cmdkit>=2.7.7",
+    "duckdb>=1.2.1",
+    "numpy>=2.2.3",
+    "polars>=1.25.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipython>=9.0.2",
+]
+
+[project.scripts]
+1trc = 'onetrc:main'
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/onetrc"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
