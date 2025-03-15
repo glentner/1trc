@@ -1,7 +1,15 @@
 # SPDX-FileCopyrightText: 2025 Geoffrey Lentner
 # SPDX-License-Identifier: MIT
 
-"""City average data."""
+"""
+Station name average data.
+
+Weather station names and average values taken from the original Java source code
+from the 1BRC repo: https://github.com/gunnarmorling/1brc.
+
+We build our measurement dataset in the same way by sampling from a standard normal
+distribution with a standard deviation of 10.0.
+"""
 
 
 # Type annotations
@@ -9,10 +17,10 @@ from __future__ import annotations
 from typing import List, Final, Tuple
 
 # Public interface
-__all__ = ['CITY_AVERAGES', ]
+__all__ = ['STATION_DATA', ]
 
 
-CITY_AVERAGES: Final[List[Tuple[str, float]]] = [
+STATION_DATA: Final[List[Tuple[str, float]]] = [
     ("Abha", 18.0),
     ("Abidjan", 26.0),
     ("Abéché", 29.4),
