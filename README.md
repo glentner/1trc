@@ -52,6 +52,12 @@ mkdir -p data
 Solutions
 ---------
 
-I think I'll add various implementations of a solution under the `run` subcommand eventually.
+Currently, I've only added the `duckdb-basic` implementation.
+
+```shell
+1trc run duckdb-basic 'data/*.csv' --set threads=8 --pragma enable_progress_bar
+```
+
+I think I'll add various implementations eventually.
 This was not the priority initially though.
-Feel free
+Feel free to contribute something if you feel so motivated.

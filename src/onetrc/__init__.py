@@ -18,6 +18,7 @@ from cmdkit.cli import Interface
 # Internal libs
 from onetrc.config import APPNAME, VERSION_INFO, cfg, log, set_verbose, print_exception
 from onetrc.build import BuildMeasurements
+from onetrc.solutions import SolutionGroup
 
 # Public interface
 __all__ = ['main', ]
@@ -54,6 +55,7 @@ class App(ApplicationGroup):
 
     commands = {
         'build': BuildMeasurements,
+        'run': SolutionGroup,
     }
 
 
