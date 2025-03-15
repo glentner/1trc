@@ -40,13 +40,13 @@ Use `-v` instead of `-p` to show logs instead of a progress bar.
 
 ```shell
 mkdir -p data
-1trc build -N1000 -n1000000 -o data
+1trc build -N1000 -n1000000 -o data -v
 ```
 
 Now for the 1TRC, 10k files of 100M rows each in _PARQUET_.
 ```shell
 mkdir -p data
-1trc build -N10000 -n100000000 -o data -f parquet
+1trc build -N10000 -n100000000 -o data -v -f parquet
 ```
 
 Solutions
