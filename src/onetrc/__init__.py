@@ -27,6 +27,9 @@ __all__ = ['main', ]
 USAGE: Final[str] = f"""\
 Usage:
   1trc [-hv]
+  1trc build [-h] [-v | -p] [-o DIR] [-f FORMAT] [-n NUM] [-N NUM]
+  1trc run [-h] <solution> <filepattern> [--parquet] [--print] ...
+
   {__doc__}\
 """
 
@@ -39,7 +42,7 @@ Commands:
 
 Options:
   -v, --version         Show version and exit.
-  -h, --help            Show this message and exit.
+  -h, --help            Show this message and exit.\
 """
 
 Application.log_critical = log.critical

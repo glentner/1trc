@@ -6,16 +6,14 @@
 
 # Type annotations
 from __future__ import annotations
-
-import sys
-from typing import List, Final, Tuple
+from typing import Final
 
 # Standard libs
 import os
+import sys
 
 # External libs
-from cmdkit.logging import Logger, level_by_name, logging_styles
-from cmdkit.app import Application, ApplicationGroup
+from cmdkit.app import Application
 from cmdkit.cli import Interface
 from polars import DataFrame
 from tqdm import tqdm
@@ -46,7 +44,7 @@ Options:
   -N, --num-files     NUM     Number of output files (default: 1).
   -v, --verbose               Show info level messages.
   -p, --progress              Show progress bar.
-  -h, --help                  Show this message and exit.
+  -h, --help                  Show this message and exit.\
 """
 
 

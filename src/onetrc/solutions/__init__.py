@@ -1,12 +1,12 @@
 # SPDX-FileCopyrightText: 2025 Geoffrey Lentner
 # SPDX-License-Identifier: MIT
 
-"""Solutions to the challenge."""
+"""Run given solution to the challenge."""
 
 
 # Type annotations
 from __future__ import annotations
-from typing import List, Final
+from typing import Final
 
 # External libs
 from cmdkit.app import Application, ApplicationGroup
@@ -22,18 +22,18 @@ __all__ = ['SolutionGroup', ]
 
 USAGE: Final[str] = f"""\
 Usage:
-  1trc run [-h] <solution> ...
-  Run specific solution to the challenge.\
+  1trc run [-h] <solution> <filepattern> [--parquet] [--print] ...
+  {__doc__}\
 """
 
 HELP: Final[str] = f"""\
 {USAGE}
 
 Solutions:
-  duckdb-basic          Naive SQL implementation.
+  duckdb-basic          {DuckdbBasic.desc}
 
 Options:
-  -h, --help            Show this message and exit.
+  -h, --help            Show this message and exit.\
 """
 
 

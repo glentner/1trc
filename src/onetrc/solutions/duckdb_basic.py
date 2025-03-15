@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2025 Geoffrey Lentner
 # SPDX-License-Identifier: MIT
 
-"""Naive SQL implementation."""
+"""Naive SQL implementation with duckdb."""
 
 
 # Type annotations
@@ -17,7 +17,6 @@ from cmdkit.cli import Interface
 import duckdb
 
 # Internal libs
-from onetrc.config import log
 from onetrc.solutions.interface import Solution
 
 # Public interface
@@ -25,9 +24,10 @@ __all__ = ['DuckdbBasic', ]
 
 
 NAME: Final[str] = 'duckdb-basic'
+DESC: Final[str] = __doc__
 USAGE: Final[str] = f"""\
 Usage:
-  1trc run {NAME} [-h] [-p] <filepattern>
+  1trc run {NAME} [-h] <filepattern> [-p] [--print] [-s ARGS...] [--pragma ARGS...]
   {__doc__}\
 """
 
@@ -42,26 +42,26 @@ Options:
   -h, --help               Show this message and exit.
   
 Settings:
-  threads=4               Set number of threads to 4.
-  memory_limit=8GB        Set memory limit to 8GB.
-  enable_profiling=json   Alter format of profiling output.
-  profiling_output=PATH   Some PATH to write profiling output.
+  threads=4                Set number of threads to 4.
+  memory_limit=8GB         Set memory limit to 8GB.
+  enable_profiling=json    Alter format of profiling output.
+  profiling_output=PATH    Some PATH to write profiling output.
   
 Pragmas:
-  enable_profiling        Enable profiling on query.
-  enable_progress_bar     Show progress bar when running queries.
-  disable_progress_bar    Disable progress bar when running queries.
+  enable_profiling         Enable profiling on query.
+  enable_progress_bar      Show progress bar when running queries.
+  disable_progress_bar     Disable progress bar when running queries.
 
 See https://duckdb.org/docs/stable/configuration/pragmas.html
-for more information on duckdb settings and pragmas.
+for more information on duckdb settings and pragmas.\
 """
 
 
 class DuckdbBasic(Solution):
-    """Solution interface includes timing and metadata management."""
+    """Basic duckdb implementation."""
 
-    name: str = 'duckdb-basic'
-    desc: str = __doc__
+    name: str = NAME
+    desc: str = DESC
     mode: str = 'filepattern'
 
     interface = Interface(f'1trc run {NAME}', USAGE, HELP)
