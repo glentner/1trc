@@ -6,9 +6,7 @@
 
 # Type annotations
 from __future__ import annotations
-
 from types import TracebackType
-from typing import List, Final, Type
 
 # Standard libs
 from abc import ABC, abstractmethod, abstractproperty
@@ -31,6 +29,10 @@ class Solution(Application, ABC):
     t_start: perf_counter
     t_stop: perf_counter
 
+    name: str = '?'
+    desc: str = '?'
+    mode: str = '?'
+
     def __enter__(self: Solution) -> Solution:
         """Initialize timer."""
         set_verbose()
@@ -44,15 +46,3 @@ class Solution(Application, ABC):
         self.t_stop = perf_counter()
         elapsed = timedelta(seconds=(self.t_stop - self.t_start))
         log.info(f'Completed {self.name} in {elapsed}')
-
-    @abstractproperty
-    def name(self: Solution) -> str:
-        """UI name for this solution."""
-
-    @abstractproperty
-    def desc(self: Solution) -> str:
-        """UI description for this solution."""
-
-    @abstractproperty
-    def desc(self: Solution) -> str:
-        """UI mode for logging and output."""
