@@ -6,7 +6,7 @@
 
 # Type annotations
 from __future__ import annotations
-from typing import List, Final, Type
+from typing import List, Final, Dict
 
 # Standard libs
 import os
@@ -24,7 +24,7 @@ __all__ = ['DuckdbBasic', ]
 
 
 NAME: Final[str] = 'duckdb-basic'
-DESC: Final[str] = __doc__
+DESC: Final[str] = str(__doc__)
 USAGE: Final[str] = f"""\
 Usage:
   1trc run {NAME} [-h] <filepattern> [-p] [--print] [-s ARGS...] [--pragma ARGS...]
@@ -110,7 +110,7 @@ SELECT
     station_name,
     MIN(temperature) as min_temperature,
     MAX(temperature) as max_temperature,
-    CAST(AVG(measurement) AS DECIMAL(8,1)) AS mean_temperature
+    CAST(AVG(temperature) AS DECIMAL(8,1)) AS mean_temperature
 FROM READ_PARQUET('{filepattern}')
 GROUP BY station_name;
 """
