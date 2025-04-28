@@ -155,7 +155,7 @@ SQL_MERGE_CSV: Final[str] = """
 
 SELECT
     station_name,
-    CAST(SUM(station_count) AS INTEGER) AS station_count,
+    SUM(station_count)::BIGINT AS station_count,
     MIN(temp_min) AS temp_min,
     MAX(temp_max) AS temp_max,
     CAST(SUM(temp_mean * station_count)/SUM(station_count) AS DECIMAL(8,1)) AS temp_mean,
@@ -171,7 +171,7 @@ SQL_MERGE_PARQUET: Final[str] = """
 
 SELECT
     station_name,
-    CAST(SUM(station_count) AS INTEGER) AS station_count,
+    SUM(station_count)::BIGINT AS station_count,
     MIN(temp_min) AS temp_min,
     MAX(temp_max) AS temp_max,
     CAST(SUM(temp_mean * station_count)/SUM(station_count) AS DECIMAL(8,1)) AS temp_mean,
