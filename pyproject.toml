@@ -12,7 +12,9 @@ dependencies = [
     "cmdkit>=2.7.7",
     "duckdb>=1.2.1",
     "numpy>=2.2.3",
+    "pandas>=2.2.3",
     "polars>=1.25.0",
+    "pyarrow>=20.0.0",
     "tqdm>=4.67.1",
 ]
 
