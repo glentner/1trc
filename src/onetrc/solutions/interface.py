@@ -9,7 +9,7 @@ from __future__ import annotations
 from types import TracebackType
 
 # Standard libs
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC
 from time import perf_counter
 from datetime import timedelta
 
@@ -26,8 +26,8 @@ __all__ = ['Solution', ]
 class Solution(Application, ABC):
     """Solution interface includes timing and metadata management."""
 
-    t_start: perf_counter
-    t_stop: perf_counter
+    t_start: float
+    t_stop: float
 
     name: str = '?'
     desc: str = '?'
@@ -46,3 +46,4 @@ class Solution(Application, ABC):
         self.t_stop = perf_counter()
         elapsed = timedelta(seconds=(self.t_stop - self.t_start))
         log.info(f'Completed {self.name} in {elapsed}')
+        super().__exit__(exc_type, exc_value, traceback)

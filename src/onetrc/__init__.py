@@ -16,7 +16,7 @@ from cmdkit.app import Application, ApplicationGroup
 from cmdkit.cli import Interface
 
 # Internal libs
-from onetrc.config import APPNAME, VERSION_INFO, cfg, log, set_verbose, print_exception
+from onetrc.config import APPNAME, VERSION_INFO, log
 from onetrc.build import BuildMeasurements
 from onetrc.solutions import SolutionGroup
 
@@ -28,7 +28,7 @@ USAGE: Final[str] = f"""\
 Usage:
   1trc [-hv]
   1trc build [-h] [-v | -p] [-o DIR] [-f FORMAT] [-n NUM] [-N NUM]
-  1trc run [-h] <solution> <filepattern> [--parquet] [--print] ...
+  1trc run [-h] <solution> <filepattern> [-p] [-f FORMAT] [-o PATH] ...
 
   {__doc__}\
 """
