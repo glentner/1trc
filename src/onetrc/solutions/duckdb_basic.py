@@ -36,7 +36,7 @@ HELP: Final[str] = f"""
 {USAGE}
 
 Options:
-  -p, --parquet            Switch to parquet format.
+  -p, --from-parquet       Read input as parquet instead of CSV.
   -o, --output   PATH      Write output to PATH (default: <stdout>).
   -f, --format   FORMAT    Format output (default: normal).
       --csv                Format output as CSV.
@@ -111,9 +111,10 @@ class DuckdbBasic(Solution):
         """Print query results."""
         formatter = PRINT_MODE[self.print_format]
         if self.output_filename == '-':
-            formatter(query)
+            formatter(query, stream=sys.stdout)
         else:
-            with open(self.output_filename, mode='wb') as stream:
+            mode = 'wb' if self.print_format == 'parquet' else 'w'
+            with open(self.output_filename, mode=mode) as stream:
                 formatter(query, stream=stream)
 
 
